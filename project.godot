@@ -13,7 +13,6 @@ config_version=5
 config/name="ascii"
 run/main_scene="uid://c7r7cimj8m1oj"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
