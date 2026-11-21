@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://ypbes6103n30"]
+[gd_scene load_steps=13 format=3 uid="uid://ypbes6103n30"]
 
 [ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://shader/Ascii_Shader-main/shader2d.gdshader" id="1_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://cm7fbqchinl0n" path="res://shader/Ascii_Shader-main/imgs/ascii.png" id="2_g3eks"]
 [ext_resource type="Script" uid="uid://dd4e0uy13kma6" path="res://scripts/control.gd" id="3_v86rl"]
-[ext_resource type="Texture2D" uid="uid://b3wan0pam0pj6" path="res://Dark Gothic Castle.png" id="4_13sgg"]
+[ext_resource type="Texture2D" uid="uid://b5nsypcyexdt3" path="res://BG.png" id="4_v86rl"]
+[ext_resource type="Texture2D" uid="uid://c5d0c5rxv37ax" path="res://CASTLE.png" id="5_13sgg"]
+[ext_resource type="Script" uid="uid://dskvafl721dvc" path="res://scenes/bg.gd" id="5_70i5f"]
 [ext_resource type="FontFile" uid="uid://7p3cq4hymei1" path="res://fonts/CloisterBlack.ttf" id="5_i6lef"]
+[ext_resource type="Texture2D" uid="uid://c8805etfu0n8i" path="res://SHADOW.png" id="6_i6lef"]
+[ext_resource type="Script" uid="uid://dvnk1speeo1xj" path="res://scenes/sprite_2d_2.gd" id="7_i6lef"]
+[ext_resource type="Script" uid="uid://cr58xikhwxltp" path="res://scenes/shadow.gd" id="9_70i5f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4hy44"]
 shader = ExtResource("1_4ytvr")
@@ -28,9 +33,6 @@ scale = Vector2(1.0159767, 1.0688593)
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 324)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -53,11 +55,26 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ytr4m")
 text = "PLAY"
 flat = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BG" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(582, 333)
 scale = Vector2(6.139583, 6.1453705)
-texture = ExtResource("4_13sgg")
+texture = ExtResource("4_v86rl")
+script = ExtResource("5_70i5f")
+
+[node name="Castle" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+texture = ExtResource("5_13sgg")
+script = ExtResource("7_i6lef")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+texture = ExtResource("6_i6lef")
+script = ExtResource("9_70i5f")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 111.0
