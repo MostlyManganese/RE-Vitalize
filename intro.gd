@@ -16,5 +16,6 @@ func _process(delta: float) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if beep.animation == "beep2":
 		beep.stop()
+		get_tree().change_scene_to_file("res://menu.tscn")
 	else:
 		beep.play_backwards("beep2")
