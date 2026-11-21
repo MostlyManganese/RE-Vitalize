@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://c17ohki3wlwt5"]
+
+[ext_resource type="Script" uid="uid://dc8brih8o6j5n" path="res://game.gd" id="1_hve3p"]
+[ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://Ascii_Shader-main/shader2d.gdshader" id="2_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://cm7fbqchinl0n" path="res://Ascii_Shader-main/imgs/ascii.png" id="3_iotsf"]
+[ext_resource type="Texture2D" uid="uid://dfmjpux6kohcv" path="res://butterfly/frame-3.png" id="4_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://cy2xj8lhqfysy" path="res://butterfly/frame-4.png" id="5_215e1"]
+[ext_resource type="Texture2D" uid="uid://dpahjssmfp3dt" path="res://butterfly/frame-5.png" id="6_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://bi4krj03cio5s" path="res://butterfly/frame-6.png" id="7_80cx4"]
+[ext_resource type="Texture2D" uid="uid://b00xl7ab278qs" path="res://butterfly/frame-7.png" id="8_e8heu"]
+[ext_resource type="Texture2D" uid="uid://cehr5xfv5bwtv" path="res://butterfly/frame-8.png" id="9_rvswv"]
+[ext_resource type="Texture2D" uid="uid://c2621276vo8er" path="res://butterfly/frame-9.png" id="10_boyg6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hol4"]
+shader = ExtResource("2_mfdv2")
+shader_parameter/_ascii_tex = ExtResource("3_iotsf")
+shader_parameter/_char_size = 8.0
+shader_parameter/_char_count = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k73cj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lc2xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_215e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7sc4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_80cx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e8heu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rvswv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_boyg6")
+}],
+"loop": true,
+"name": &"butterfly",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hve3p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0hol4")
+offset_left = -6.9999995
+offset_top = -21.0
+offset_right = 1143.0
+offset_bottom = 628.0
+scale = Vector2(1.0159767, 1.0688593)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 326)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(544, 313)
+sprite_frames = SubResource("SpriteFrames_k73cj")
+animation = &"butterfly"
+frame_progress = 0.73530984
