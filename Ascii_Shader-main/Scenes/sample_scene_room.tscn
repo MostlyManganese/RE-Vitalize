@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bqrl1tgmw0may"]
 
 [ext_resource type="ArrayMesh" uid="uid://brqn6uhnhu6ck" path="res://Ascii_Shader-main/Assets/rubber_duck.obj" id="1_8ggqs"]
-[ext_resource type="Shader" uid="uid://6fnpia1da107" path="res://Shaders/ascii_shader.gdshader" id="2_76bji"]
+[ext_resource type="Shader" uid="uid://6fnpia1da107" path="res://Ascii_Shader-main/Shaders/ascii_shader.gdshader" id="2_76bji"]
 [ext_resource type="Texture2D" uid="uid://dtkg3dclgemie" path="res://Ascii_Shader-main/Assets/Texture/edgesASCII.png" id="3_5uxoe"]
 [ext_resource type="Texture2D" uid="uid://bf5lyk18i4i6k" path="res://Ascii_Shader-main/Assets/Texture/fillASCII.png" id="4_ywexs"]
 [ext_resource type="ArrayMesh" uid="uid://dxikqiartj47p" path="res://Ascii_Shader-main/Assets/sample_room.obj" id="5_bqaie"]

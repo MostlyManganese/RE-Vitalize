@@ -68,8 +68,6 @@ scale = Vector2(1.0159767, 1.0688593)
 position = Vector2(574, 326)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(544, 313)
 sprite_frames = SubResource("SpriteFrames_k73cj")
 animation = &"butterfly"
-frame_progress = 0.73530984

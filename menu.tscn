@@ -1,6 +1,47 @@
-[gd_scene format=3 uid="uid://ypbes6103n30"]
+[gd_scene load_steps=5 format=3 uid="uid://ypbes6103n30"]
+
+[ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://Ascii_Shader-main/shader2d.gdshader" id="2_rx85p"]
+[ext_resource type="Texture2D" uid="uid://cm7fbqchinl0n" path="res://Ascii_Shader-main/imgs/ascii.png" id="3_26d4b"]
+[ext_resource type="Script" uid="uid://dd4e0uy13kma6" path="res://control.gd" id="3_mae5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hy44"]
+shader = ExtResource("2_rx85p")
+shader_parameter/_ascii_tex = ExtResource("3_26d4b")
+shader_parameter/_char_size = 8.0
+shader_parameter/_char_count = 10.0
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4hy44")
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 1143.0
+offset_bottom = 629.0
+scale = Vector2(1.0159767, 1.0688593)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 368.0
+offset_top = 364.0
+offset_right = 408.0
+offset_bottom = 404.0
+script = ExtResource("3_mae5d")
+
+[node name="Play" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 16.0
+offset_bottom = 31.0
+scale = Vector2(8.597718, 6.1290817)
+text = "PLAY"
+
+[connection signal="pressed" from="Control/Play" to="Control" method="_on_play_pressed"]
