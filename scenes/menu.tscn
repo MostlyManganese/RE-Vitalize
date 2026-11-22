@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://ypbes6103n30"]
+[gd_scene load_steps=16 format=3 uid="uid://ypbes6103n30"]
 
 [ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://shader/Ascii_Shader-main/shader2d.gdshader" id="1_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://cm7fbqchinl0n" path="res://shader/Ascii_Shader-main/imgs/ascii.png" id="2_g3eks"]
 [ext_resource type="Script" uid="uid://dd4e0uy13kma6" path="res://scripts/control.gd" id="3_v86rl"]
-[ext_resource type="Script" uid="uid://c5l84qsn3td13" path="res://scenes/play.gd" id="4_ufwb2"]
+[ext_resource type="Script" uid="uid://c5l84qsn3td13" path="res://scripts/play.gd" id="4_ufwb2"]
 [ext_resource type="Texture2D" uid="uid://b5nsypcyexdt3" path="res://BG.png" id="4_v86rl"]
 [ext_resource type="Texture2D" uid="uid://c5d0c5rxv37ax" path="res://CASTLE.png" id="5_13sgg"]
-[ext_resource type="Script" uid="uid://dskvafl721dvc" path="res://scenes/bg.gd" id="5_70i5f"]
+[ext_resource type="Script" uid="uid://dskvafl721dvc" path="res://scripts/bg.gd" id="5_70i5f"]
 [ext_resource type="FontFile" uid="uid://7p3cq4hymei1" path="res://fonts/CloisterBlack.ttf" id="5_i6lef"]
 [ext_resource type="Texture2D" uid="uid://c8805etfu0n8i" path="res://SHADOW.png" id="6_i6lef"]
-[ext_resource type="Script" uid="uid://dvnk1speeo1xj" path="res://scenes/sprite_2d_2.gd" id="7_i6lef"]
-[ext_resource type="Script" uid="uid://cr58xikhwxltp" path="res://scenes/shadow.gd" id="9_70i5f"]
-[ext_resource type="Script" uid="uid://cyeb5oh4e3r54" path="res://scenes/label.gd" id="11_mj5lg"]
+[ext_resource type="Script" uid="uid://dvnk1speeo1xj" path="res://scripts/sprite_2d_2.gd" id="7_i6lef"]
+[ext_resource type="Script" uid="uid://cr58xikhwxltp" path="res://scripts/shadow.gd" id="9_70i5f"]
+[ext_resource type="Script" uid="uid://cyeb5oh4e3r54" path="res://scripts/label.gd" id="11_mj5lg"]
+[ext_resource type="AudioStream" uid="uid://cpw87l5a2eata" path="res://audio/4- Arvostus.mp3" id="13_6cdou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4hy44"]
 shader = ExtResource("1_4ytvr")
@@ -46,15 +47,31 @@ script = ExtResource("3_v86rl")
 
 [node name="Play" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = -1.0
-offset_right = 16.0
-offset_bottom = 31.0
+offset_left = 12.0
+offset_top = -50.999996
+offset_right = 59.0
+offset_bottom = -19.999996
 scale = Vector2(8.597718, 6.1290817)
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.25490198, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.25490198, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ytr4m")
 text = "PLAY"
+flat = true
+script = ExtResource("4_ufwb2")
+
+[node name="Play2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = 61.999996
+offset_right = -25.0
+offset_bottom = 93.0
+scale = Vector2(8.597718, 6.1290817)
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.25490198, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ytr4m")
+text = "CREDITS"
 flat = true
 script = ExtResource("4_ufwb2")
 
@@ -68,7 +85,7 @@ script = ExtResource("5_70i5f")
 [node name="Castle" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(582, 333)
-scale = Vector2(6.139583, 6.1453705)
+scale = Vector2(6.139583, 6.1453714)
 texture = ExtResource("5_13sgg")
 script = ExtResource("7_i6lef")
 
@@ -90,4 +107,12 @@ theme_override_font_sizes/font_size = 200
 text = "RE:Vitalize"
 script = ExtResource("11_mj5lg")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+stream = ExtResource("13_6cdou")
+autoplay = true
+parameters/looping = true
+
 [connection signal="pressed" from="Control/Play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Play2" to="Control" method="_on_play_2_pressed"]

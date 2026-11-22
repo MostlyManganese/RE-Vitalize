@@ -1,0 +1,162 @@
+[gd_scene load_steps=15 format=3 uid="uid://cqnbeki6lsmj0"]
+
+[ext_resource type="Script" uid="uid://boudg2hxhhgsy" path="res://scenes/Control2.gd" id="1_he3jt"]
+[ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://shader/Ascii_Shader-main/shader2d.gdshader" id="1_y603c"]
+[ext_resource type="Texture2D" uid="uid://cm7fbqchinl0n" path="res://shader/Ascii_Shader-main/imgs/ascii.png" id="2_tqqan"]
+[ext_resource type="Texture2D" uid="uid://b5nsypcyexdt3" path="res://BG.png" id="5_t00yq"]
+[ext_resource type="Script" uid="uid://dskvafl721dvc" path="res://scripts/bg.gd" id="6_u7l3p"]
+[ext_resource type="Texture2D" uid="uid://c5d0c5rxv37ax" path="res://CASTLE.png" id="7_x7jt2"]
+[ext_resource type="Script" uid="uid://dvnk1speeo1xj" path="res://scripts/sprite_2d_2.gd" id="8_upmn8"]
+[ext_resource type="Texture2D" uid="uid://c8805etfu0n8i" path="res://SHADOW.png" id="9_a3ire"]
+[ext_resource type="Script" uid="uid://cr58xikhwxltp" path="res://scripts/shadow.gd" id="10_bjuxo"]
+[ext_resource type="FontFile" uid="uid://7p3cq4hymei1" path="res://fonts/CloisterBlack.ttf" id="11_wcl8h"]
+[ext_resource type="Script" uid="uid://cyeb5oh4e3r54" path="res://scripts/label.gd" id="12_c5rao"]
+[ext_resource type="AudioStream" uid="uid://cpw87l5a2eata" path="res://audio/4- Arvostus.mp3" id="13_1f8do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y603c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hy44"]
+shader = ExtResource("1_y603c")
+shader_parameter/_ascii_tex = ExtResource("2_tqqan")
+shader_parameter/_char_size = 8.0
+shader_parameter/_char_count = 10.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+modulate = Color(0.21568628, 1, 1, 0.3137255)
+offset_left = 242.0
+offset_top = 45.99997
+offset_right = 918.0
+offset_bottom = 542.0
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+offset_left = 252.0
+offset_top = 50.0
+offset_right = 994.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 40
+text = "Main menu music: Crow Shade"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 479.0
+offset_top = 409.0
+offset_right = 519.0
+offset_bottom = 449.0
+script = ExtResource("1_he3jt")
+
+[node name="Back" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -499.0
+offset_top = 80.999985
+offset_right = -452.0
+offset_bottom = 111.999985
+scale = Vector2(8.597718, 6.1290817)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("11_wcl8h")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y603c")
+text = "Back"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4hy44")
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 1143.0
+offset_bottom = 629.0
+scale = Vector2(1.0159767, 1.0688593)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+texture = ExtResource("5_t00yq")
+script = ExtResource("6_u7l3p")
+
+[node name="Castle" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+texture = ExtResource("7_x7jt2")
+script = ExtResource("8_upmn8")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+texture = ExtResource("9_a3ire")
+script = ExtResource("10_bjuxo")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.63529414)
+offset_left = 111.0
+offset_top = 45.0
+offset_right = 1192.0
+offset_bottom = 338.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("11_wcl8h")
+theme_override_font_sizes/font_size = 200
+text = "RE:Vitalize"
+script = ExtResource("12_c5rao")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(582, 333)
+scale = Vector2(6.139583, 6.1453705)
+stream = ExtResource("13_1f8do")
+autoplay = true
+parameters/looping = true
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 479.0
+offset_top = 409.0
+offset_right = 519.0
+offset_bottom = 449.0
+script = ExtResource("1_he3jt")
+
+[node name="Back" type="Button" parent="CanvasLayer3/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -499.0
+offset_top = 80.999985
+offset_right = -452.0
+offset_bottom = 111.999985
+scale = Vector2(8.597718, 6.1290817)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("11_wcl8h")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y603c")
+text = "Back"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+material = SubResource("ShaderMaterial_4hy44")
+offset_left = -7.0
+offset_top = -20.0
+offset_right = 1143.0
+offset_bottom = 629.0
+scale = Vector2(1.0159767, 1.0688593)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Control/Back" to="CanvasLayer/Control" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/Back" to="CanvasLayer3/Control" method="_on_back_pressed"]

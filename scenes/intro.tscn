@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://c7r7cimj8m1oj"]
+[gd_scene load_steps=92 format=3 uid="uid://c7r7cimj8m1oj"]
 
 [ext_resource type="Script" uid="uid://bel0uwjv662xx" path="res://scripts/intro.gd" id="1_xisp3"]
 [ext_resource type="Shader" uid="uid://c5vxg0lsthj3q" path="res://shader/Ascii_Shader-main/shader2d.gdshader" id="2_vynlr"]
@@ -87,6 +87,8 @@
 [ext_resource type="Texture2D" uid="uid://cetv7m1kjkwuw" path="res://animatedsprite2d/beep/frame-82.png" id="85_oq57f"]
 [ext_resource type="Texture2D" uid="uid://bqvsmotu17d1l" path="res://animatedsprite2d/beep/frame-83.png" id="86_v7ip3"]
 [ext_resource type="Texture2D" uid="uid://c4uuekvlg84a8" path="res://animatedsprite2d/beep/frame-84.png" id="87_u738q"]
+[ext_resource type="AudioStream" uid="uid://dvfk5gmudd4m0" path="res://shader/heartbeat-flatline-sound-hd-ytmp4.savetube.vip.mp3" id="88_vynlr"]
+[ext_resource type="AudioStream" uid="uid://ci084jmxbvx3u" path="res://shader/test3.mp3" id="89_uwrfh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lfpi"]
 shader = ExtResource("2_vynlr")
@@ -604,4 +606,11 @@ frame_progress = 0.51398337
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
+[node name="Beep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("88_vynlr")
+
+[node name="ReverseBeep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("89_uwrfh")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="finished" from="Beep" to="." method="_on_audio_stream_player_2d_finished"]
